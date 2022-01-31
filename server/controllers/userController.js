@@ -1,5 +1,5 @@
 const catchAsyncError = require("../middleware/catchAsyncError.js");
-const userMODEL = require('../model/userModel.js')
+const userMODEL = require("../model/userModel.js");
 const bcrypt = require("bcrypt");
 const sendMails = require("../utils/sendEmail.js");
 const crypto = require("crypto");
@@ -13,16 +13,13 @@ class UserController {
       name,
       email,
       password: hashPass,
-      avatar: {
-        public_id: "this is sample id",
-        url: "sampleUrl",
-      },
     });
 
     const token = user.getJWTToken();
 
     res.status(201).json({
       success: true,
+      message: "Registered successfull",
       token,
     });
   });
@@ -81,24 +78,35 @@ class UserController {
   });
 
   static forgotPass = catchAsyncError(async (req, res) => {
-    const user = await userMODEL.findOne({email:req.body.email})
-    try {
-      const mailreceive = await sendMails({
-        email: req.body.email,
-        subject: `ePharmacy Passord Recovery`,
-      },req,res);
+    const user = await userMODEL.findOne({ email: req.body.email });
 
-      if(!mailreceive){
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "Email not found",
+      });
+    }
+    try {
+      const mailreceive = await sendMails(
+        {
+          email: req.body.email,
+          subject: `ePharmacy Passord Recovery`,
+        },
+        req,
+        res
+      );
+
+      if (!mailreceive) {
         return res.status(400).json({
           success: false,
-          message: 'Email not sent'
-        })
-      }else{
-       return res.status(200).json({
-        success: true,
-        message: `Email send to ${user.email} successfully`,
-      })
-    }
+          message: "Email not sent",
+        });
+      } else {
+        return res.status(200).json({
+          success: true,
+          message: `Email send to ${user.email} successfully`,
+        });
+      }
     } catch (error) {
       user.resetPasswordToken = undefined;
       user.resetPasswordExpire = undefined;

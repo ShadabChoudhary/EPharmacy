@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
 
 const Connectdb = async (username, password) => {
-  const DB_URL =
-    process.env.DATABSE_URL ||
-    `mongodb+srv://${username}:${password}@ecommerceweb.lk1sw.mongodb.net/test`;
-
   try {
+    const DB_URL =
+      process.env.DATABSE_URL ||
+      `mongodb+srv://${username}:${password}@ecommerceweb.lk1sw.mongodb.net/test`;
     await mongoose.connect(DB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,

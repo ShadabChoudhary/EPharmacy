@@ -13,7 +13,6 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "Please Enter Your Email"],
-    unique: true,
     validate: [validator.isEmail, "Please Enter Valid Email"],
   },
   password: {
@@ -22,16 +21,7 @@ const userSchema = new mongoose.Schema({
     minlength: [8, "Password should be greater than 8 characters"],
     select: false,
   },
-  avatar: {
-    public_id: {
-      type: String,
-      required: true,
-    },
-    url: {
-      type: String,
-      required: true,
-    },
-  },
+
   role: {
     type: String,
     default: "user",

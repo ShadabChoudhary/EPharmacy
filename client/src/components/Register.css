@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  /* border: 2px solid black; */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(228, 222, 222);
+}
+.form-container {
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0, 0.5);
+}
+
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* .right-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+} */
+
+.left-container {
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pass-logo {
+  width: 30px;
+}
+.signup {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 20px;
+}
+.form {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+.input-control {
+  outline: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  background-color: none;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 5px;
+  width: 20vw;
+}
+
+.btn {
+  /* border: 2px solid black; */
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 30px;
+  border: none;
+  background-color: #fb641b;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 0 #0000002c;
+  transition: 0.2s box-shadow;
+}
+.btn:hover {
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0, 0.5);
+}
+
+.reg-image {
+  width: 450px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+.reg-title {
+  margin: 10px 0 10px 0;
+}
+.existing-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.existing-user:hover {
+  text-decoration: none;
+  color: #1568bb;
+}
+
+.already-acc-title {
+  text-decoration: none;
+  color: black;
+}
+
+.already-acc-title:hover {
+  text-decoration: underline;
+  color: #1568bb;
+}
+
+/* Extra login style */
+
+.create-user-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.create-user {
+  text-decoration: none;
+  color: black;
+}
+
+.create-user-container :hover {
+  text-decoration: underline;
+  color: #0f5dac;
+}
+
+.forgot-pass-container {
+  margin-top: 5px;
+  cursor: pointer;
+}
+.forgot-pass {
+  text-decoration: none;
+  color: black;
+}
+
+.forgot-pass-container :hover {
+  text-decoration: underline;
+  color: #0f5dac;
+}
